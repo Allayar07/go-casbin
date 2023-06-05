@@ -8,14 +8,13 @@ git clone git@github.com:Allayar07/go-casbin.git
 git clone https://github.com/Allayar07/go-casbin.git
 ```
 # Run  Project
-* ** Use this command:
+* Use this command:
 ```
 docker build -t go-casbin . && docker run -p 8090:8888 -it go-casbin
 ```
 
-# Request
-# STEP-1:
-first you need log in!!!
+# Request:
+First you need log in!!!
 * Method: ```POST```
 URL :
 ```
