@@ -20,5 +20,9 @@ URL :
 ```
 http://localhost:8090/login
 ```
+* Response: ```
+                tokenString
+              ```
+Then set tokenString to Authorization Header with Bearer
 1. Then do request to : ```http://localhost:8090/read```
 2. Second endpoint: ```http://localhost:8090/book```
