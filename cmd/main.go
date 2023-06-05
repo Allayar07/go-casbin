@@ -20,7 +20,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	r.GET("/book", auth.RequiresPermissions([]string{"book:read"}, gcasbin.WithLogic(gcasbin.AND)), handler.ReadBook)
+	r.GET("/read", auth.RequiresPermissions([]string{"book:read"}, gcasbin.WithLogic(gcasbin.AND)), handler.ReadBook)
 
 	r.POST("/book", auth.RequiresRoles([]string{"guest"}, gcasbin.WithLogic(gcasbin.AND)), handler.ReadAndWriteAndSoOn)
 
