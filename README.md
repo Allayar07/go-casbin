@@ -20,10 +20,7 @@ migrate -path ./schema -database 'postgres://postgres:password0701@localhost:543
 # Request:
 * First you need create user!!!
 
-*Method ```POST```
-First you need log in!!!
-
-* Method: ```POST```
+* Method ```POST```
 
 URL :
 ```
@@ -51,16 +48,29 @@ http://localhost:9999/create_user
 	"role": "admin"
 }
 ```
+
+* Then you need to log in!!!
+
+* Method: ```POST```
 URL :
 ```
 http://localhost:9999/login
 ```
+* Body:
+```
+{
+    "name": "User",
+    "password": "pass123"
+}
+```
 * Response:
 
 ```
-   tokenString
+ {
+    "token": "token_string"
+ }
 ```
 
-Then set tokenString to Authorization Header with Bearer
+Then set tokenString to Authorization Header
 1. Then do request to (```METHOD:``` GET) : ```http://localhost:9999/read```
 2. Second endpoint (```METHOD:``` POST): ```http://localhost:9999/book```
