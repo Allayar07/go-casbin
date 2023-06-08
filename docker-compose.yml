@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  database:
+    image: postgres:14.1-alpine
+    container_name: casbin-db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password0701
+      - POSTGRES_DB=practice
+    ports:
+      - '5432:5432/tcp'
+
+  casbin-service:
+    build: .
+    container_name: casbin_service
+    ports:
+      - "9999:9999"

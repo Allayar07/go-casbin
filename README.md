@@ -10,15 +10,50 @@ git clone https://github.com/Allayar07/go-casbin.git
 # Run  Project
 * Use this command:
 ```
-docker build -t go-casbin . && docker run -p 8090:8888 -it go-casbin
+docker compose up
 ```
-
+# DB Migrations 
+* Command:
+```
+migrate -path ./schema -database 'postgres://postgres:password0701@localhost:5432/practice?sslmode=disable' up
+```
 # Request:
+* First you need create user!!!
+
+*Method ```POST```
 First you need log in!!!
+
 * Method: ```POST```
+
 URL :
 ```
-http://localhost:8090/login
+http://localhost:9999/create_user
+```
+* Body:
+```
+{
+    "name": "User",
+    "password": "pass123",
+    "phone": 223433,
+    "address":"Ashgabat",
+    "role": "admin"
+}
+```
+* Response:
+
+```
+ {
+	"id": 0,
+	"name": "User",
+	"password": "pass123",
+	"phone": 223433,
+	"address": "Ashgabat",
+	"role": "admin"
+}
+```
+URL :
+```
+http://localhost:9999/login
 ```
 * Response:
 
@@ -27,5 +62,5 @@ http://localhost:8090/login
 ```
 
 Then set tokenString to Authorization Header with Bearer
-1. Then do request to : ```http://localhost:8090/read```
-2. Second endpoint: ```http://localhost:8090/book```
+1. Then do request to (```METHOD:``` GET) : ```http://localhost:9999/read```
+2. Second endpoint (```METHOD:``` POST): ```http://localhost:9999/book```
