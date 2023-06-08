@@ -18,7 +18,7 @@ docker compose up
 migrate -path ./schema -database 'postgres://postgres:password0701@localhost:5432/practice?sslmode=disable' up
 ```
 # Request:
-* First you need create user!!!
+* First you need create 2 user!!!
 
 * Method ```POST```
 
@@ -26,14 +26,14 @@ URL :
 ```
 http://localhost:9999/create_user
 ```
-* Body:
+* Body for superuser:
 ```
 {
-    "name": "User",
+    "name": "User1",
     "password": "pass123",
     "phone": 223433,
     "address":"Ashgabat",
-    "role": "admin"
+    "role": "superuser"
 }
 ```
 * Response:
@@ -41,11 +41,32 @@ http://localhost:9999/create_user
 ```
  {
 	"id": 0,
-	"name": "User",
-	"password": "pass123",
+	"name": "User1",
 	"phone": 223433,
 	"address": "Ashgabat",
-	"role": "admin"
+	"role": "superuser"
+}
+```
+
+* Body for customer:
+```
+{
+    "name": "User2",
+    "password": "pass12345",
+    "phone": 223433,
+    "address":"Ashgabat",
+    "role": "customer"
+}
+```
+* Response:
+
+```
+ {
+	"id": 0,
+	"name": "User2",
+	"phone": 223433,
+	"address": "Ashgabat",
+	"role": "customer"
 }
 ```
 

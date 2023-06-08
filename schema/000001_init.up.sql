@@ -28,8 +28,12 @@ VALUES
     ('superuser', 'admin', 'get', 'allow'),
     ('superuser', 'admin', 'post', 'allow'),
     ('superuser', 'admin', 'put', 'allow'),
+    ('superuser', 'user', 'get', 'allow'),
+    ('superuser', 'user', 'post', 'allow'),
+    ('superuser', 'user', 'put', 'allow'),
     ('customer', 'user', 'get', 'allow'),
     ('customer', 'user', 'post', 'deny'),
     ('customer', 'user', 'patch', 'deny'),
     ('customer', 'user', 'delete', 'deny');
+
 drop table schema_migrations;

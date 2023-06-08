@@ -26,8 +26,8 @@ func (h *Handler) InitRoutes() *gin.Engine {
 	app := gin.Default()
 	app.POST("/log-in", h.LogIn)
 	app.POST("/create_user", h.CreateUser)
-	app.GET("/read", h.Authorize("admin", "get", h.adapter), h.ReadBook)
+	app.GET("/read", h.Authorize("user", "get", h.adapter), h.ReadBook)
 
-	app.POST("/book", h.Authorize("organizations", "post", h.adapter), h.ReadAndWriteAndSoOn)
+	app.POST("/book", h.Authorize("admin", "post", h.adapter), h.ReadAndWriteAndSoOn)
 	return app
 }
